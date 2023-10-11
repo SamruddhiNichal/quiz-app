@@ -1,0 +1,7 @@
+.selected .arrow {
+  color: #008000; /* Green color */
+}
+
+.incorrect .arrow {
+  color: #FF0000; /* Red color */
+}

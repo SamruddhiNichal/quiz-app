@@ -1,0 +1,32 @@
+<div class="container mt-5">
+ 
+  <div *ngIf="!quizFinished && currentQuestionIndex < questions.length" class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+      <h3>{{ questions[currentQuestionIndex].question }}</h3>
+      <div *ngFor="let option of questions[currentQuestionIndex].options; let i = index" class="form-check">
+        <input type="radio" class="form-check-input" name="option" [value]="option" (change)="onSelect(option)">
+        <label class="form-check-label">
+          <span [ngClass]="{
+            'text-success': isOptionCorrect(option),
+            'text-danger': isOptionIncorrect(option)
+          }">
+            {{ option }}
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="quizFinished" class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+      <h3>Quiz finished! Your score is {{ score }}/{{ questions.length }}</h3>
+      <button (click)="showLeaderboardAndRestart()" class="btn btn-primary">Show Leaderboard and Retry</button>
+    </div>
+  </div>
+    </div>
+    
+    <div *ngIf="showLeaderboard">
+      <app-leaderboard></app-leaderboard>
+    </div>
+
+  

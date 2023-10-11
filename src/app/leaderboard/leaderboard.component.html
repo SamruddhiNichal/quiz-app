@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+      <h2>Leaderboard</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of topScorers">
+            <td>{{ entry.name }}</td>
+            <td>{{ entry.score }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button routerLink="/quiz" class="btn btn-primary">Retry Quiz</button>
+    </div>
+  </div>
+  
